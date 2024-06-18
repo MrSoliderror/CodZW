@@ -130,7 +130,7 @@ namespace Steam
 			}
 			else
 			{
-				Proxy::SetMod("IW4x: Modern Warfare 2");
+				Proxy::SetMod("Call of Duty: ZOMBIE WARFARE");
 				Proxy::RunGame();
 			}
 

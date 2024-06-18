@@ -12,7 +12,7 @@ namespace Components
 #ifdef _DEBUG
 	constexpr auto* BUILD_TYPE = "IW4x_DEV MP";
 #else
-	constexpr auto* BUILD_TYPE = "IW4x MP";
+	constexpr auto* BUILD_TYPE = "Call of Duty: ZOMBIE WARFARE";
 #endif
 
 	void Branding::CG_DrawVersion()
@@ -101,7 +101,7 @@ namespace Components
 		RegisterBrandingDvars();
 
 		// UI version string
-		Utils::Hook::Set<const char*>(0x43F73B, "IW4x " REVISION_STR);
+		Utils::Hook::Set<const char*>(0x43F73B, "Call of Duty: ZOMBIE WARFARE");
 
 		// Short version dvar
 		Utils::Hook::Set<const char*>(0x60BD91, REVISION_STR);
@@ -109,7 +109,7 @@ namespace Components
 		// Com_Init_Try_Block_Function
 		Utils::Hook::Set<const char*>(0x60BAF4, BUILD_TYPE);
 #ifdef EXPERIMENTAL_BUILD
-		Utils::Hook::Set<const char*>(0x60BAEf, REVISION_STR "-develop");
+		Utils::Hook::Set<const char*>(0x60BAEf, REVISION_STR);
 #else
 		Utils::Hook::Set<const char*>(0x60BAEf, REVISION_STR);
 #endif
@@ -137,19 +137,19 @@ namespace Components
 		// Console title
 		if (ZoneBuilder::IsEnabled())
 		{
-			Utils::Hook::Set<const char*>(0x4289E8, "IW4x (" REVISION_STR "): ZoneBuilder");
+			Utils::Hook::Set<const char*>(0x4289E8, "Call of Duty: ZOMBIE WARFARE (" REVISION_STR ") - ZoneBuilder");
 		}
 		else if (Dedicated::IsEnabled())
 		{
 #ifdef EXPERIMENTAL_BUILD
-			Utils::Hook::Set<const char*>(0x4289E8, "IW4x " REVISION_STR "-develop: Dedicated");
+			Utils::Hook::Set<const char*>(0x4289E8, "Call of Duty: ZOMBIE WARFARE - Dedicated");
 #else
-			Utils::Hook::Set<const char*>(0x4289E8, "IW4x " REVISION_STR ": Dedicated");
+			Utils::Hook::Set<const char*>(0x4289E8, "Call of Duty: ZOMBIE WARFARE - Dedicated");
 #endif
 		}
 		else
 		{
-			Utils::Hook::Set<const char*>(0x4289E8, "IW4x (" REVISION_STR "): Console");
+			Utils::Hook::Set<const char*>(0x4289E8, "Call of Duty: ZOMBIE WARFARE - Console");
 		}
 	}
 }

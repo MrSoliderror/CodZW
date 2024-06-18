@@ -50,9 +50,9 @@ namespace Components
 
 		if (!Game::CL_IsCgameInitialized())
 		{
-			DiscordPresence.details = "Multiplayer";
-			DiscordPresence.state = "Main Menu";
-			DiscordPresence.largeImageKey = "menu_multiplayer";
+			DiscordPresence.details = "At the main menu";
+			DiscordPresence.state = "Getting ready to slay some zombies";
+			DiscordPresence.largeImageKey = "https://gcdnb.pbrd.co/images/5IBcL9pAnj7h.png";
 
 			DiscordPresence.partySize = 0;
 			DiscordPresence.partyMax = 0;
@@ -74,7 +74,7 @@ namespace Components
 		{
 			const auto* value = Game::StringTable_GetColumnValueForRow(table, row, 1);
 			const auto* localize = Game::DB_FindXAssetHeader(Game::ASSET_TYPE_LOCALIZE_ENTRY, value).localize;
-			DiscordPresence.details = Utils::String::Format("{} on {}", localize ? localize->value : "Team Deathmatch", map);
+			DiscordPresence.details = Utils::String::Format("Playing Nazi Zombies on {1}", localize ? localize->value : "Team Deathmatch", map);
 		}
 		else
 		{
@@ -109,7 +109,7 @@ namespace Components
 			DiscordPresence.startTimestamp = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 		}
 
-		DiscordPresence.largeImageKey = "menu_multiplayer";
+		DiscordPresence.largeImageKey = "https://gcdnb.pbrd.co/images/5IBcL9pAnj7h.png";
 
 		Discord_UpdatePresence(&DiscordPresence);
 	}
@@ -130,7 +130,7 @@ namespace Components
 		handlers.spectateGame = nullptr;
 		handlers.joinRequest = JoinRequest;
 
-		Discord_Initialize("1072930169385394288", &handlers, 1, nullptr);
+		Discord_Initialize("1238482118514966549", &handlers, 1, nullptr);
 
 		Scheduler::Once(UpdateDiscord, Scheduler::Pipeline::MAIN);
 		Scheduler::Loop(UpdateDiscord, Scheduler::Pipeline::MAIN, 15s);

@@ -27,7 +27,7 @@ namespace Components
 	{
 		if (Flags::HasFlag("version"))
 		{
-			printf("%s", "IW4x " VERSION " (built " __DATE__ " " __TIME__ ")\n");
+			printf("%s", "Call of Duty: ZOMBIE WARFARE (built " __DATE__ " " __TIME__ ")\n");
 #ifdef EXPERIMENTAL_BUILD
 			printf("Revision: %i - develop\n", REVISION);
 #else

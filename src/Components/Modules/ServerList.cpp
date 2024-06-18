@@ -382,9 +382,9 @@ namespace Components
 			RefreshContainer.awatingList = true;
 			RefreshContainer.awaitTime = Game::Sys_Milliseconds();
 
-			Toast::Show("cardicon_headshot", "Server Browser", "Fetching servers...", 3000);
+			Toast::Show("cardicon_headshot", "Server Browser", "Fetching zombie servers...", 3000);
 
-			const auto url = std::format("http://iw4x.getserve.rs/v1/servers/iw4x?protocol={}", PROTOCOL);
+			const auto url = std::format("http://97.83.127.80:20810/getservers/api?protocol={}", PROTOCOL);
 			const auto reply = Utils::WebIO("IW4x", url).setTimeout(5000)->get();
 			if (reply.empty())
 			{
@@ -980,7 +980,7 @@ namespace Components
 			});
 
 		// Set default masterServerName + port and save it 
-		Utils::Hook::Set<const char*>(0x60AD92, "server.alterware.dev");
+		Utils::Hook::Set<const char*>(0x60AD92, "97.83.127.80");
 		Utils::Hook::Set<std::uint8_t>(0x60AD90, Game::DVAR_NONE); // masterServerName
 		Utils::Hook::Set<std::uint8_t>(0x60ADC6, Game::DVAR_NONE); // masterPort
 

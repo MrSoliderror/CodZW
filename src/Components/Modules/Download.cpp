@@ -256,7 +256,7 @@ namespace Components
 
 		const auto listUrl = host + (download->isMap_ ? "/map" : "/list") + (download->isPrivate_ ? ("?password=" + download->hashedPassword_) : "");
 
-		const auto list = Utils::WebIO("IW4x", listUrl).setTimeout(5000)->get();
+		const auto list = Utils::WebIO("Call of Duty: ZOMBIE WARFARE", listUrl).setTimeout(5000)->get();
 		if (list.empty())
 		{
 			if (download->terminateThread_) return;

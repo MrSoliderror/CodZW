@@ -46,7 +46,7 @@ namespace Components
 			}
 			else
 			{
-				auto* endPtr = std::strstr(workdir, "iw4x.exe");
+				auto* endPtr = std::strstr(workdir, "codzw.exe");
 				if (endPtr != nullptr)
 				{
 					*endPtr = 0;
