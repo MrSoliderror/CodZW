@@ -384,7 +384,7 @@ namespace Components
 
 			Toast::Show("cardicon_headshot", "Server Browser", "Fetching zombie servers...", 3000);
 
-			const auto url = std::format("http://97.83.127.80:20810/getservers/api?protocol={}", PROTOCOL);
+			const auto url = std::format("http://97.83.127.80:20810?protocol={}", PROTOCOL);
 			const auto reply = Utils::WebIO("IW4x", url).setTimeout(5000)->get();
 			if (reply.empty())
 			{
